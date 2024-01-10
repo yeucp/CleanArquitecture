@@ -17,7 +17,7 @@ namespace Application.CustomerView.GetAll
 
         async Task<ErrorOr<IReadOnlyList<CustomerViewResult>>> IRequestHandler<GetCustomerViewQuery, ErrorOr<IReadOnlyList<CustomerViewResult>>>.Handle(GetCustomerViewQuery request, CancellationToken cancellationToken)
         {
-            var customerViewResult = await _customerViewRepository.GetAllAsync();
+            var customerViewResult = await _customerViewRepository.GetApiAsync();
 
             return customerViewResult.Select(customer => new CustomerViewResult(
                 customer.Id,

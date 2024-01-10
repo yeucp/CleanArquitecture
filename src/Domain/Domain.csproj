@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="1.6.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

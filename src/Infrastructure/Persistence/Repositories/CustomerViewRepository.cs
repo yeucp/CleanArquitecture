@@ -1,5 +1,7 @@
 ﻿using Domain.Customers;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Infrastructure.Persistence.Repositories
 {
@@ -13,5 +15,20 @@ namespace Infrastructure.Persistence.Repositories
         }
 
         public async Task<List<CustomersView>> GetAllAsync() => await _context.ViewCustomers.ToListAsync();
+
+        public async Task<List<CustomersView>> GetApiAsync()
+        {
+            using HttpClient client = new HttpClient();
+            var result = await client.GetAsync("https://random-data-api.com/api/users/random_user?size=3");
+
+            if(!result.IsSuccessStatusCode)
+                return new List<CustomersView>();
+
+            var jsonResult = await result.Content.ReadAsStringAsync();
+
+            var customers = JsonConvert.DeserializeObject<List<CustomersView>>(jsonResult);
+
+            return customers ?? new List<CustomersView>();
+        }
     }
 }
