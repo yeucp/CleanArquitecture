@@ -10,6 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Delete\**" />
+    <Compile Remove="Exists\**" />
+    <Compile Remove="GetById\**" />
+    <Compile Remove="GettAll\**" />
+    <Compile Remove="Update\**" />
+    <EmbeddedResource Remove="Delete\**" />
+    <EmbeddedResource Remove="Exists\**" />
+    <EmbeddedResource Remove="GetById\**" />
+    <EmbeddedResource Remove="GettAll\**" />
+    <EmbeddedResource Remove="Update\**" />
+    <None Remove="Delete\**" />
+    <None Remove="Exists\**" />
+    <None Remove="GetById\**" />
+    <None Remove="GettAll\**" />
+    <None Remove="Update\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="Moq" Version="4.20.70" />
@@ -25,15 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Delete\" />
-    <Folder Include="Exists\" />
-    <Folder Include="GettAll\" />
-    <Folder Include="GetById\" />
-    <Folder Include="Update\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Application\Application.csproj" />
+    <ProjectReference Include="..\..\src\Application\Application.csproj" />
   </ItemGroup>
 
 </Project>
